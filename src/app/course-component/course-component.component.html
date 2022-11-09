@@ -1,0 +1,49 @@
+<div>
+<app-search></app-search>
+<app-filter [all]="getTotalCourses()"
+            [free]="getFreeCourses()"
+            [premium]="getPremiumCourses()"
+            (filterRadioButtonSelectionChanged)="onFilterRadioButtonChanged($event)"></app-filter>
+<ng-container *ngFor="let c of courses">
+<div class="course-container" *ngIf="courseCountRadioButton==='All'|| courseCountRadioButton===c.type" >
+    <div class="course-card">
+        <div>
+            <img [src]="c.image"  class="image">
+        </div>
+
+        <div class="Name">
+            <h4>{{c.name}}</h4>
+        </div>
+
+        <div class="Description">
+            <p>{{c.description}}</p>
+        </div>
+
+        <div class="Course-Details">
+            <div class="course-type">
+                <b>{{c.type}}</b>
+            </div>
+
+            <div class="course-price">
+                <b>Price:</b>
+                {{c.price}}
+            </div>
+        </div>
+
+        <div class="Buttons">
+                
+                <button class="button button-buy">Buy Now</button>
+                
+                <button class="button button-show">Show-Details</button>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+</ng-container>
+
+</div>
